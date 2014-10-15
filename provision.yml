@@ -26,8 +26,12 @@
         - gcc
 
     - name: install required ruby gems
-      gem: name="{{ item }}" state=latest user_install=no
+      gem: name="{{ item }}" state=latest user_install=no include_dependencies=yes
       with_items:
         - fpm
         - deb-s3
-
+        - json
+        - cabin
+        - arr-pm
+        - clamp
+        - backports

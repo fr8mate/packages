@@ -49,15 +49,15 @@ your `Makefile` just calls a slew of scripts written in another language.
 
 ## Uploading to S3
 
-Some of the Makefiles expose an `upload-to-s3` target, which uses
-[deb-s3](https://github.com/krobertson/deb-s3) to create an apt-friendly
-repository.
+The `Makefile` in the top level of this repository has an `upload-to-s3`
+target. It uses [deb-s3](https://github.com/krobertson/deb-s3) to create an
+apt-friendly repository.
 
 > `apt` is the package manager used by Debian-based distributions, like
 > Ubuntu.
 
-One convention used, is that you must define three environment variables,
-before calling the `upload-to-s3`:
+You must have the following environment variables set, before invoking the 
+`upload-to-s3` target:
 
 *	`S3_BUCKET`
 	

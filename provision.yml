@@ -1,0 +1,33 @@
+---
+# Ansible playbook for provisioning a Vagrant box, for building .deb packages
+# for FR8nex.
+
+- name: provision ze vagrant box
+  hosts: all
+  tasks:
+    - name: fix the locale
+      command: locale-gen en_CA.UTF-8
+
+    - name: update the apt cache
+      apt: update_cache=yes
+
+    - name: install all of the necessary packages
+      apt: name="{{ item }}" state=latest
+      with_items:
+        - git
+        - bzr
+        - mercurial
+        - dpkg-dev
+        - debhelper
+        - devscripts
+        - fakeroot
+        - dh-make
+        - ruby-dev
+        - gcc
+
+    - name: install required ruby gems
+      gem: name="{{ item }}" state=latest user_install=no
+      with_items:
+        - fpm
+        - deb-s3
+

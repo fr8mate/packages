@@ -1,0 +1,18 @@
+## Change the address and port that nsqlookupd listens on.
+HTTP_ADDRESS="0.0.0.0:4161"
+
+## Duration of time a producer will remain in the active list since its
+## last ping.
+INACTIVE_PRODUCER_TIMEOUT="5m0s"
+
+## <addr>:<port> to listen on for TCP clients.
+TCP_ADDRESS="0.0.0.0:4160"
+
+## External address of this lookupd node, (default to the OS hostname).
+BROADCAST_ADDRESS=""
+
+## Duration of time a producer will remain tombstoned if registration remains.
+TOMBSTONE_LIFETIME="45s"
+
+## Enable verbose logging.
+VERBOSE="-verbose"

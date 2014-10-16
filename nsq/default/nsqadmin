@@ -1,0 +1,29 @@
+## URL to graphite HTTP address.
+GRAPHITE_URL=""
+
+## <addr>:<port> to listen on for HTTP clients.
+HTTP_ADDRESS="0.0.0.0:4171"
+
+## lookupd HTTP address.
+LOOKUPD_HTTP_ADDRESS=""
+
+## HTTP endpoint (fully qualified) to which POST notifications of admin
+## actions will be sent.
+NOTIFICATION_HTTP_ENDPOINT=""
+
+## nsqd HTTP address.
+NSQD_HTTP_ADDRESS=""
+
+## Proxy HTTP requests to graphite.
+##
+## To enable this, set it to "-proxy-graphite", and make sure that
+## GRAPHITE_URL is specified.
+PROXY_GRAPHITE=""
+
+## Path to templates directory.
+TEMPLATE_DIR=""
+
+## Expect statsd prefixed keys in graphite (ie: 'stats_counts.').
+##
+## To enable, set to "-use-statsd-prefixes".
+USE_STATSD_PREFIXES=""

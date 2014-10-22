@@ -1,0 +1,19 @@
+# nsqadmin - a web UI to view aggreated cluster stats in real time
+
+description "nsqadmin"
+
+start on started networking
+stop on runlevel [!2345]
+
+script
+	. /etc/default/nsqadmin
+	/usr/sbin/nsqadmin \
+		-graphite-url="${GRAPHITE_URL}" \
+		-http-address="${HTTP_ADDRESS}" \
+		-lookupd-http-address="${LOOKUPD_HTTP_ADDRESS}" \
+		-notification-http-endpoint="${NOTIFICATION_HTTP_ENDPOINT}" \
+		-nsqd-http-address="${NSQD_HTTP_ADDRESS}" \
+		${PROXY_GRAPHITE} \
+		-template-dir="${TEMPLATE_DIR}" \
+		${USE_STATSD_PREFIXES}
+end script

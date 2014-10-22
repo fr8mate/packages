@@ -4,6 +4,7 @@ help:
 	@echo "The following targets are available from this Makefile:"
 	@echo
 	@echo "	upload-to-s3"
+	@echo " help"
 	@echo
 
 upload-to-s3: $(shell find . -type f -iname "*.deb")

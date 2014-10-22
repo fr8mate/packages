@@ -1,0 +1,23 @@
+# nsqd - the daemon that receives, queues, and delivers messages
+#
+# It can be run standalone but is normally configured in a cluster with
+# nsqlookupd instance(s) (in which case it will announce topics and channels
+# for discovery).
+#
+# It listens on two TCP ports, one for clients and another for the HTTP API.
+# It can optionally listen on a third port for HTTPS.
+
+description "nsqd - receives, queues, and delivers messages to clients"
+
+start on started networking
+stop on runlevel [!2345]
+
+script
+	. /etc/default/nsqd
+	exec /usr/sbin/nsqd \
+		-lookupd-tcp-address="$LOOKUPD_TCP_ADDRESS" \
+		-http-address="$HTTP_ADDRESS" \
+		-https-address="$HTTPS_ADDRESS" \
+		-tcp-address="$TCP_ADDRESS" \
+		-data-path="$DATA_PATH" $EXTRA_OPTS
+end script

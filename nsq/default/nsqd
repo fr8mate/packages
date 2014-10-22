@@ -1,0 +1,22 @@
+## lookupd TCP address.
+LOOKUPD_TCP_ADDRESS=""
+
+## <addr>:<port> to listen on for HTTP clients
+HTTP_ADDRESS="0.0.0.0:4151"
+
+## <addr>:<port> to listen on for HTTPS clients
+HTTPS_ADDRESS=""
+
+## <addr>:<port> to listen on for TCP clients
+TCP_ADDRESS="0.0.0.0:4150"
+
+## path to store disk-backed messages
+DATA_PATH="/var/lib/nsqd"
+
+## Specify any extra options to nsqd.
+##
+## A complete list of supported options are documented at:
+##
+##	http://nsq.io/components/nsqd.html
+##
+EXTRA_OPTS="-verbose"

@@ -3,9 +3,13 @@ all: help
 help:
 	@echo "The following targets are available from this Makefile:"
 	@echo
+	@echo "	clean"
 	@echo "	upload-to-s3"
-	@echo " help"
+	@echo "	help"
 	@echo
+
+clean:
+	find . -type f -iname "*.deb" -exec rm -f {} \;
 
 upload-to-s3: $(shell find . -type f -iname "*.deb")
 ifndef AWS_ACCESS_KEY_ID
@@ -22,4 +26,4 @@ ifndef S3_BUCKET
 endif
 	deb-s3 upload --bucket=$(S3_BUCKET) $^
 
-.PHONY: help upload-to-s3
+.PHONY: help upload-to-s3 clean
